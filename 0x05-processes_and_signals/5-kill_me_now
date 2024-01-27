@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This Script Kills a process using command kill
+kill "$(ps -x | pgreb -f beyond)"
