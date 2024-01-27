@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This Script executes same as previous one but only bash processes
+# shellcheck disable=SC2009
+./1-list_your_processes | grep "bash"
