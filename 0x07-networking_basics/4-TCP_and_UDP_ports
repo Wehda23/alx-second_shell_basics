@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that lists and display port measurements for TCP and UDP
+
+netstat -l
