@@ -1,0 +1,4 @@
+Host your_server_ip
+    IdentityFile ~/.ssh/school
+    PreferredAuthentications publickey
+    PasswordAuthentication no
