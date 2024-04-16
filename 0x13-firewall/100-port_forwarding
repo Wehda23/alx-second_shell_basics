@@ -61,7 +61,7 @@ COMMIT
 -A ufw-before-input -p udp -d 34.207.190.109 --dport 5353 -j ACCEPT
 
 # Allow
--A ufw-before-input -p udp -d 34.207.190.109 --dport 1900 -j ACCEPT
+-A ufw-before-input -p udp -d 34.207.211.82 --dport 1900 -j ACCEPT
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
