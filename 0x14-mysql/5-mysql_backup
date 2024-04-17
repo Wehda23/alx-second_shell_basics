@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# backup and compress my databases
+# Backing up mydatabase
 
-# variables
 day=$(date +"%d")
 month=$(date +"%m")
 year=$(date +"%Y")
