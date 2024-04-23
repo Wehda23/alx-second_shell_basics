@@ -24,7 +24,7 @@ def main() -> None:
     if response.status_code == 200:
         # Grab Employee Information
         employee_info = response.json()
-        employee_name = employee_info.get("name")
+        employee_name = employee_info.get("username")
         # Grab Employee TODO List
         todo_list = requests.get(
             f"https://jsonplaceholder.typicode.com/todos"
