@@ -38,7 +38,9 @@ def main() -> None:
         for todo in employee_todo_list:
             # Add username key
             todo['username'] = employee_name
+            todo['task'] = todo['title']
             # remove keys
+            todo.pop("title")
             todo.pop("userId")
             todo.pop("id")
 
