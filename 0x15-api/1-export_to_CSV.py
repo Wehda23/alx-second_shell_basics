@@ -7,6 +7,7 @@ import requests
 import sys
 import csv
 
+
 def main() -> None:
     """
     Main Function to execute the script
@@ -65,4 +66,3 @@ def main() -> None:
 if __name__ == "__main__":
     # Run main script
     main()
-
