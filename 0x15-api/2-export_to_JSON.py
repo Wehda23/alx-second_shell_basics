@@ -43,7 +43,7 @@ def main() -> None:
             todo.pop("id")
 
         json_data = {
-            f"{employee_id}":employee_todo_list,
+            f"{employee_id}": employee_todo_list,
         }
         # File name
         filename = f"{employee_id}.json"
