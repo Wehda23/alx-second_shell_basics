@@ -3,9 +3,9 @@
 Python script that retains information about an employee usind their id,
 Retains information about an employee's TODO list.
 """
+import csv
 import requests
 import sys
-import csv
 
 
 def main() -> None:
