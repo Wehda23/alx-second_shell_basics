@@ -8,7 +8,10 @@ import requests
 import sys
 
 
-def employee_information(username: str, employee_id: int, todos: list) -> object:
+def employee_information(
+        username: str,
+        employee_id: int,
+        todos: list) -> object:
     """
     Function that takes in employee id and returns data about employee.
 
@@ -62,7 +65,7 @@ def main() -> None:
         employee_info = response.json()
         # Stop Scraping in case employee info starts returning empty dicts.
         if not employee_info:
-            break;
+            break
         employee_name = employee_info.get("username")
         # Get employee infromation
         data = employee_information(
