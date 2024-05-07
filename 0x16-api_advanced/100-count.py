@@ -2,15 +2,18 @@
 """
 File that contains a recursive function that queries Reddit API
 https://www.reddit.com/dev/api/
-parses the title of all hot articles, and prints a sorted count of given keywords
+parses the title of all hot articles,
+and prints a sorted count of given keywords
 (case-insensitive, delimited by spaces).
 """
 import requests
 from collections import Counter
 
+
 def count_words(subreddit, word_list, after=None, counts=None):
     """
-    Recursive function that queries Reddit API, parses the title of all hot articles,
+    Recursive function that queries Reddit API,
+    parses the title of all hot articles,
     and prints a sorted count of given keywords.
 
     Args:
@@ -25,9 +28,7 @@ def count_words(subreddit, word_list, after=None, counts=None):
         counts = Counter()
 
     # Build the URL for the current page
-    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(
-        subreddit
-    )
+    url = "https://www.reddit.com/r/{}/hot.json?limit=100".format(subreddit)
     if after:
         url += "&after={}".format(after)
 
@@ -37,7 +38,6 @@ def count_words(subreddit, word_list, after=None, counts=None):
     headers = {"User-Agent": user_agent}
     # Make the request
     response = requests.get(url, headers=headers)
-
     if response.status_code == 200:
         # Get the data
         data = response.json().get("data")
@@ -55,11 +55,13 @@ def count_words(subreddit, word_list, after=None, counts=None):
                         counts[word.lower()] += 1
             # Recursively call count_words function with the next page
             after = data.get("after")
-            if after:
+            if after and after not in url:
                 return count_words(subreddit, word_list, after, counts)
             else:
                 # Print the sorted count of keywords
-                for word, count in sorted(counts.items(), key=lambda x: (-x[1], x[0])):
+                for word, count in sorted(
+                    counts.items(), key=lambda x: (-x[1], x[0])
+                ):
                     print(f"{word}: {count}")
         else:
             # No posts found
