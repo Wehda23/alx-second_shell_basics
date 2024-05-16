@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Script to configure Nignx on linux machines
+# Update package list and install Nginx
+apt update
+apt install -y nginx
+
+# Backup the original Nginx configuration file
+cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+# Create a new Nginx configuration file
+cat > /etc/nginx/sites-available/default <<EOL
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+}
+EOL
+
+# Test Nginx configuration
+nginx -t
+
+# Restart Nginx to apply changes
+service nginx restart
+
+# Ensure Nginx is running and listening on port 80
+netstat -tuln | grep ':80'
+
+# Print the status of Nginx service
+service nginx status
